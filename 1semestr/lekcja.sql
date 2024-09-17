@@ -15,8 +15,8 @@ ORDER BY klienci.MiastoKlienta, klienci.NazwiskoKlienta
 --zad.3 Dla wszystkich imprez w bazie danych wyznacz nasze honorarium jako 12% wartości kontraktu oraz wartosc netto kontraktu dla artysty jako różnicę wartości kontraktu i wypłaconego honorarium
 
 SELECT imprezy.WartoscKontraktu, imprezy.NumerImprezy, 
-	  imprezy.WartoscKontraktu * 0.12 AS NaszeHonorarium, 
-    imprezy.WartoscKontraktu - (imprezy.WartoscKontraktu * 0.12) AS WartoscNetto 
+	imprezy.WartoscKontraktu * 0.12 AS NaszeHonorarium, 
+    	imprezy.WartoscKontraktu - (imprezy.WartoscKontraktu * 0.12) AS WartoscNetto 
 FROM imprezy;
 
 --zad.4 Sporządź wykaz imprez trwajacych wiecej niz dwa dni. Wykaz ma zawierac: numer imprezy, dzien rozpoczecia i zakonczenia.
