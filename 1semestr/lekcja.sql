@@ -25,5 +25,5 @@ SELECT
 SELECT 
 	imprezy.NumerImprezy, imprezy.DzienRozpoczecia, imprezy.DzienZakonczenia
 Where
-	DATEDIFF(imprezy.DzienRozpoczecia, imprezy.DzienZakonczenia)  > 2;
+	DATEDIFF(imprezy.DzienZakonczenia, imprezy.DzienRozpoczecia)  > 2;
        
