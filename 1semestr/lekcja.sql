@@ -118,14 +118,7 @@ GROUP BY
 ORDER BY 
 	IleObserwacji DESC
 LIMIT 
-	10;SELECT gatunki.nazwa_zwyczajowa, COUNT(obserwacje.poczatek) AS IleObserwacji
-FROM gatunki
-JOIN obserwacje ON gatunki.ID_gatunku = obserwacje.ID_gatunku
-JOIN lokalizacje ON lokalizacje.ID_lokalizacji = obserwacje.ID_lokalizacji
-WHERE lokalizacje.powiat = 'gdanski'
-GROUP BY gatunki.nazwa_zwyczajowa
-ORDER BY IleObserwacji DESC
-LIMIT 10;
+	10;
 
 
 
