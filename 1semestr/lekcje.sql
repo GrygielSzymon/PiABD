@@ -1,4 +1,5 @@
 --17.09.24
+
 --zad.1
 SELECT 
 	klienci.ImieKlienta as imie, klienci.NazwiskoKlienta as nazwisko, imprezy.DzienRozpoczecia AS poczatek, nazwascenicznawykonawcy as kapela
@@ -66,7 +67,7 @@ GROUP BY
 ORDER BY 
 	IlePanstw DESC
 
---zad5 W ilu krajach dany język jest językiem oficialnym 
+--zad5 W ilu krajach dany język jest językiem oficialnym
 SELECT 
 	LANGUAGE, COUNT(CountryCode) AS IlePanstwuzywa 
 FROM 
@@ -120,6 +121,25 @@ ORDER BY
 LIMIT 
 	10;
 
+
+--01.10.24
+
+--zad.1 w którym powiecie liczba zaobserwowanych ptaków z gatunku dziencioł (lecz tylko tych osobników, które żerują w lesie) jest największa,a w którym najmniejsza?
+SELECT 
+	powiat, 
+	SUM(obserwacje.liczebnosc) AS liczba_dzieciolow
+FROM 
+	gatunki, lokalizacje, obserwacje
+WHERE 
+    	zachowanie="zeruje" 
+    	AND nazwa_zwyczajowa LIKE "dzieciol%" 
+    	AND opis LIKE "%las%"
+    	AND gatunki.ID_gatunku = obserwacje.ID_gatunku
+    	AND lokalizacje.ID_lokalizacji = obserwacje.ID_lokalizacji 
+GROUP BY 
+    	powiat
+ORDER BY 
+   	liczba_dzieciolow DESC;
 
 
 
