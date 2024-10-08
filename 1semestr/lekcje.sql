@@ -142,5 +142,54 @@ ORDER BY
    	liczba_dzieciolow DESC;
 
 
+--08.10.24
+
+--zad.1 Wyświelt z bazy danych Agencja Artystyczna: wartość sumaryczną WARTOSCIKONTRAKTU oraz wartość średnią WARTOSCIKONTRAKTU pogrupowane wg miasta Wykonawcy
+
+SELECT
+    SUM(imprezy.WartoscKontraktu), 
+    AVG(imprezy.WartoscKontraktu)
+FROM 
+    imprezy
+JOIN 
+	wykonawcy ON imprezy.IDWykonawcy = wykonawcy.IDWykonawcy
+GROUP BY 
+    wykonawcy.MiastoWykonawcy;
+
+--zad.2 Wyznacz  średnią Cenęhurtową dla dostawców produktu pogrupowaną wg miast dostawców. DB: ZamówieniaPrzykład
+
+SELECT 
+    dostawcy.MiastoDostawcy, 
+    AVG(dostawcy_produktow.CenaHurtowa) AS SredniaCenaHurtowa
+FROM 
+    dostawcy_produktow
+JOIN 
+    dostawcy ON dostawcy_produktow.IDDostawcy = dostawcy.IDDostawcy
+GROUP BY 
+    dostawcy.MiastoDostawcy;
+
+--zad.3 Podaj 10 najliczniejszych obserwacji zaewidencjonowanych w tabeli obserwacje uzyskanych funkcją agregującą
+-- COUNT(liczebność) pogrupowanych nazwą zwyczajową gatunku. Uzyskane wyniki uporządkuj malejąco. BD:PTAKI
+
+SELECT COUNT(obserwacje.liczebnosc) AS liczbnosc, gatunki.nazwa_zwyczajowa
+FROM obserwacje, gatunki
+WHERE obserwacje.ID_gatunku = gatunki.ID_gatunku
+GROUP BY gatunki.nazwa_zwyczajowa
+ORDER BY liczbnosc DESC
+LIMIT 10
+
+--zad.4 Dla wszystkich prodótów w tabeli PRODUKTY wyznacz(oblicz) liczbę dostawców każdego produktu 
+
+SELECT 
+	p.NazwaProduktu, COUNT(DISTINCT dp.IDDostawcy) AS LiczbaDostawców
+FROM 
+	produkty p
+JOIN 
+	dostawcy_produktow dp ON p.NumerProduktu = dp.NumerProduktu
+GROUP BY 
+	p.NazwaProduktu
+LIMIT 
+	0, 25;
+
 
 
