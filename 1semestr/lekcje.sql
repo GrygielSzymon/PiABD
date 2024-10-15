@@ -192,4 +192,51 @@ LIMIT
 	0, 25;
 
 
+--08.10.24
+
+--zad.1 Podaj nazwy wszystich naszych dostawców 
+
+SELECT 
+	dostawcy.NazwaDostawcy
+FROM 
+	dostawcy
+
+--zad.2 jakie są nazwy i ceny wszystkich produktów, jakie sprzedajemy
+
+SELECT 
+	produkty.NazwaProduktu, produkty.CenaDetaliczna
+FROM 
+	produkty
+
+--zad.3 z jakich stanów pochodzą nasi klienci
+
+SELECT 
+	klienci.StanZamKlienta
+FROM 
+	klienci
+
+--zad.4 Wskaż najdroższą książkę
+
+SELECT 
+	ksiazki.tytul, MAX(ksiazki.cena)
+FROM 
+	ksiazki
+
+--zad.5 Wyświetl zamówienia ułożone od ostatniego dokonanego
+
+SELECT 
+	*
+FROM 
+	zamowienia
+ORDER BY 
+	zamowienia.data DESC	
+
+--zad.6 dla wszyskich imprez wyznach nasze chonorarium jako 15% wartości kontraktu oraz wartosc netto kontraktu dla artysty jako różnicę wartości kontraktu i wypłaconego honorarium
+
+SELECT 
+	imprezy.WartoscKontraktu,
+	imprezy.wartosckontraktu * 0.15 AS honorarium,
+	imprezy.wartosckontraktu - (imprezy.wartosckontraktu * 0.15) AS wartosc_netto
+FROM 
+    	imprezy;
 
