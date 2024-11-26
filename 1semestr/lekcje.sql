@@ -142,7 +142,7 @@ ORDER BY
    	liczba_dzieciolow DESC;
 
 
---08.10.24
+--19.11.24
 
 --zad.1 Wyświelt z bazy danych Agencja Artystyczna: wartość sumaryczną WARTOSCIKONTRAKTU oraz wartość średnią WARTOSCIKONTRAKTU pogrupowane wg miasta Wykonawcy
 
@@ -241,7 +241,7 @@ FROM
     	imprezy;
 
 
---08.10.24
+--26.11.24
 
 UPDATE klienci SET klienci.nazwisko = "Psikuta"
 
