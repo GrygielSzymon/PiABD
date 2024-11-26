@@ -292,3 +292,26 @@ INSERT INTO klienci VALUES(NULL, "Agamemnon", "Listkowski", "Czarna Góra")
 --zad 12
 DELETE FROM klienci
 WHERE klienci.idklienta > 10
+
+
+--26.10.24
+
+--zad.1 Dodanie użytkownika
+
+CREATE USER Szymon IDENTIFIED BY "Hasło"
+CREATE USER "Matka"@"localhost"IDENTIFIED BY "Hasło"
+
+--zad.2 Usuwanie użytkownika 
+
+DROP USER "Matka"@"localhost"
+
+--zad.3 Zmaina hasła
+
+SET PASSWORD = PASSWORD "Hasło zastępcze"
+
+--zad.4 Pokazywanie listy użytkowników
+
+SELECT USER, host, PASSWORD FROM mysql.user
+
+--zad.5
+
