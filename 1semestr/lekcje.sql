@@ -303,7 +303,7 @@ CREATE USER "Matka"@"localhost"IDENTIFIED BY "Hasło"
 
 --zad.2 Usuwanie użytkownika 
 
-DROP USER "Matka"@"localhost"
+DROP USER "user"@"localhost"
 
 --zad.3 Zmaina hasła
 
@@ -313,5 +313,7 @@ SET PASSWORD = PASSWORD "Hasło zastępcze"
 
 SELECT USER, host, PASSWORD FROM mysql.user
 
---zad.5
+--zad.5 Nadawanie uprawnień
+
+GRANT [prawo] ON baza_danych. * TO 'użytkownik'@'host' IDENTIFIED BY '[haslo]'
 
